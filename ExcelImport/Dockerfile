@@ -6,10 +6,10 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["ExcelImport/ExcelImport.csproj", "ExcelImport/"]
+COPY ["ExcelImport/ExcelImport/ExcelImport.csproj", "ExcelImport/ExcelImport/"]
 RUN dotnet restore "ExcelImport/ExcelImport.csproj"
 COPY . .
-WORKDIR "/src/ExcelImport"
+WORKDIR "/src/ExcelImport/ExcelImport"
 RUN dotnet build "ExcelImport.csproj" -c Release -o /app/build
 
 FROM build AS publish
