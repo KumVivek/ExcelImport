@@ -6,3 +6,5 @@ services:
     build:
       context: .
       dockerfile: ExcelImport/Dockerfile
+    ports:
+      - "4000:80"
